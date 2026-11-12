@@ -1,0 +1,27 @@
+# Konfiguration Pico 2 – Schranken + Kamera-Sim-UI. VOR DEM FLASHEN ANPASSEN.
+# "ap" = Pico 2 spannt das Test-WLAN selbst auf (kein Router noetig), "sta" = mit Router verbinden
+WLAN_MODUS = "ap"
+WLAN_SSID = "SmartParking-TEST"
+WLAN_PASSWORT = "bitte-aendern"
+
+IP = "192.168.4.2"
+MASKE = "255.255.255.0"
+GATEWAY = "192.168.4.254"
+DNS = "192.168.4.254"
+
+KASSE_HOST = "192.168.4.1"
+
+M2M_TIMEOUT_MS = 4000
+STATUS_TIMEOUT_MS = 2000
+
+SCHRANKE_OFFEN_S = 5
+
+EINFAHRT_SERVO = 15
+EINFAHRT_LED_ROT = 16
+EINFAHRT_LED_GRUEN = 17
+AUSFAHRT_SERVO = 14
+AUSFAHRT_LED_ROT = 18
+AUSFAHRT_LED_GRUEN = 19
+
+SERVO_ZU_US = 500
+SERVO_OFFEN_US = 1500
