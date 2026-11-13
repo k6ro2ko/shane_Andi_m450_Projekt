@@ -1,4 +1,4 @@
-# Schranken-Hardware (Pico 2): Servo SG90 und/oder LED-Paar (rot = zu, gruen = offen).
+# Eine Schranke an Pico 2: Servo SG90 und/oder zwei LEDs (rot = zu, gruen = offen)
 from machine import PWM, Pin
 from time import ticks_add, ticks_diff, ticks_ms
 
@@ -36,7 +36,7 @@ class Schranke:
         self._stellen(True)
         self._schliessen_um = ticks_add(ticks_ms(), int(sekunden * 1000))
 
+    # wird alle 50 ms aufgerufen und macht die Schranke nach Ablauf der Zeit wieder zu
     def tick(self):
-        """Regelmaessig aufrufen: schliesst nach Ablauf der Offen-Zeit."""
         if self._schliessen_um is not None and ticks_diff(ticks_ms(), self._schliessen_um) >= 0:
             self.schliessen()

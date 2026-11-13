@@ -1,4 +1,4 @@
-# Pico 1 – Kasse (192.168.4.1). Startet automatisch beim Einschalten.
+# Pico 1: Kasse (192.168.4.1), wird beim Einschalten automatisch gestartet
 try:
     import asyncio
 except ImportError:

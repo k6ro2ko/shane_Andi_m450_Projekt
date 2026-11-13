@@ -1,10 +1,9 @@
-# Kennzeichen-Validierung (Testkonzept AK A1, TC-08).
+# Kennzeichen pruefen: Kanton, Bindestrich, 1-6 Ziffern ohne fuehrende Null (z.B. ZH-123)
 KANTONE = (
     "AG", "AI", "AR", "BE", "BL", "BS", "FR", "GE", "GL", "GR", "JU", "LU", "NE",
     "NW", "OW", "SG", "SH", "SO", "SZ", "TG", "TI", "UR", "VD", "VS", "ZG", "ZH",
 )
 MAX_ZIFFERN = 6
-_ZIFFERN = "0123456789"
 
 
 def normalisiere(text):
@@ -13,8 +12,8 @@ def normalisiere(text):
     return text.strip().upper()
 
 
+# kz muss schon normalisiert sein (gross, ohne Leerzeichen)
 def ist_gueltig(kz):
-    """kz muss bereits normalisiert sein."""
     teile = kz.split("-")
     if len(teile) != 2:
         return False
@@ -26,12 +25,12 @@ def ist_gueltig(kz):
     if nummer[0] == "0":
         return False
     for c in nummer:
-        if c not in _ZIFFERN:
+        if c not in "0123456789":
             return False
     return True
 
 
+# gibt das Kennzeichen in Grossbuchstaben zurueck, oder None wenn ungueltig
 def pruefe(text):
-    """Liefert das normalisierte Kennzeichen oder None, wenn ungueltig."""
     kz = normalisiere(text)
     return kz if ist_gueltig(kz) else None

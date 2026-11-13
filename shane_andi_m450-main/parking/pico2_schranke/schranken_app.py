@@ -1,4 +1,5 @@
-# Pico 2 – Kamera-Sim-UI und Schrankensteuerung (ohne Hardware-Import -> testbar).
+# Kamera-Sim-UI von Pico 2. Die Schranken werden von aussen mitgegeben,
+# darum kann man das auch ohne Pico testen.
 import ablauf
 import webutil as w
 from kennzeichen import ist_gueltig, normalisiere

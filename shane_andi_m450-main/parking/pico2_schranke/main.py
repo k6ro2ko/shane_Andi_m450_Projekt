@@ -1,4 +1,4 @@
-# Pico 2 – Schranken + Kamera-Sim-UI (192.168.4.2). Startet automatisch beim Einschalten.
+# Pico 2: Schranken und Kamera-Sim-UI (192.168.4.2), wird beim Einschalten automatisch gestartet
 import config
 from schranke import Schranke
 

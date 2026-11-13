@@ -1,4 +1,4 @@
-# Konfiguration Pico 1 – Kasse. VOR DEM FLASHEN ANPASSEN.
+# Einstellungen Pico 1 (Kasse). WLAN-Daten vor dem Flashen anpassen!
 WLAN_SSID = "SmartParking-TEST"
 WLAN_PASSWORT = "bitte-aendern"
 

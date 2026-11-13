@@ -1,4 +1,5 @@
-# M2M-Client: HTTP-Anfrage von Pico 2 an Pico 1 mit hartem Timeout (NF2, TC-13).
+# Pico 2 fragt Pico 1 per HTTP. Wenn die Kasse nicht innert timeout_ms antwortet,
+# kommt None zurueck (Kasse aus). Darum eigene Sockets statt asyncio.open_connection.
 import json
 import select
 import socket
@@ -22,6 +23,8 @@ except ImportError:
 import webutil
 
 MAX_ANTWORT = 4096
+# EAGAIN/EWOULDBLOCK auf Pico, Linux, Mac und Windows
+_WOULDBLOCK = (11, 35, 115, 10035)
 
 
 async def _schlafen(ms):
@@ -42,8 +45,8 @@ def _bereit(sock, schreiben):
     return bool(r or wl)
 
 
+# POST wenn daten mitgegeben werden, sonst GET. Gibt das JSON als dict zurueck.
 async def anfrage(host, pfad, daten=None, timeout_ms=4000, port=80):
-    """POST (wenn daten) bzw. GET an Pico 1. -> dict aus JSON oder None bei Fehler/Timeout."""
     start = ticks_ms()
 
     def abgelaufen():
@@ -113,9 +116,6 @@ async def anfrage(host, pfad, daten=None, timeout_ms=4000, port=80):
                 s.close()
             except Exception:
                 pass
-
-
-_WOULDBLOCK = (11, 35, 115, 10035)
 
 
 def _ist_wouldblock(e):

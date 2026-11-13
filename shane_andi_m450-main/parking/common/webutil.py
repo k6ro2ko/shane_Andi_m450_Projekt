@@ -1,4 +1,4 @@
-# Minimaler HTTP-Server-Baukasten fuer MicroPython (asyncio) und CPython (Tests).
+# Kleiner HTTP-Server fuer beide Picos. Laeuft auch mit normalem Python (Tests, Simulator).
 try:
     import asyncio
 except ImportError:
@@ -65,8 +65,8 @@ def parse_qs(s, max_felder=20):
     return felder
 
 
+# gibt (methode, pfad, query, form) zurueck, ZU_GROSS oder None
 async def lese_anfrage(reader):
-    """-> (methode, pfad, query, form) | ZU_GROSS | None"""
     zeile = await reader.readline()
     if not zeile:
         return None
@@ -119,8 +119,9 @@ def _fehler_ausgeben(e):
         print("Fehler:", repr(e))
 
 
+# Eine Verbindung abarbeiten. route(methode, pfad, q, f) gibt (status, body) zurueck,
+# optional noch Content-Type und weitere Header.
 async def bediene(reader, writer, route):
-    """Eine Verbindung abarbeiten. route ist async: (methode, pfad, q, f) -> (status, body[, ctype])."""
     try:
         anfrage = await asyncio.wait_for(lese_anfrage(reader), ANFRAGE_TIMEOUT_S)
         if anfrage is None:

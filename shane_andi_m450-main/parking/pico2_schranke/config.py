@@ -1,4 +1,4 @@
-# Konfiguration Pico 2 – Schranken + Kamera-Sim-UI. VOR DEM FLASHEN ANPASSEN.
+# Einstellungen Pico 2 (Schranken). WLAN-Daten vor dem Flashen anpassen!
 # "ap" = Pico 2 spannt das Test-WLAN selbst auf (kein Router noetig), "sta" = mit Router verbinden
 WLAN_MODUS = "ap"
 WLAN_SSID = "SmartParking-TEST"

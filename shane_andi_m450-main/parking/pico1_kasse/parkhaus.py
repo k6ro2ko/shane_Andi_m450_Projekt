@@ -1,4 +1,4 @@
-# Geschaeftslogik der Kasse (Pico 1) ohne Hardware und ohne Netzwerk.
+# Parkhaus-Logik von Pico 1 (ohne Netzwerk, damit man sie mit pytest testen kann)
 import tarif
 from kennzeichen import ist_gueltig
 
@@ -31,8 +31,8 @@ class Parkhaus:
         self.fahrzeuge[kz] = {"ein": jetzt, "bez": None, "art": None, "betrag": 0, "verloren": False}
         return "ok"
 
+    # gibt (status, offener Betrag in Rappen) zurueck
     def _zustand(self, f, jetzt):
-        """-> (status, offener_betrag_rappen)"""
         if f["bez"] is None:
             return OFFEN, tarif.gebuehr(jetzt - f["ein"])
         if tarif.in_kulanz(f["bez"], jetzt):
@@ -57,8 +57,8 @@ class Parkhaus:
             "ausfahrt_bis": None if f["bez"] is None else f["bez"] + tarif.KULANZ_S,
         }
 
+    # Ergebnis: ok, art, nicht_gefunden oder nichts_offen
     def bezahlen(self, kz, art, jetzt):
-        """-> (ergebnis, betrag): ok | art | nicht_gefunden | nichts_offen"""
         if art not in ZAHLUNGSARTEN:
             return "art", 0
         f = self.fahrzeuge.get(kz)
@@ -72,9 +72,9 @@ class Parkhaus:
         f["betrag"] += offen
         return "ok", offen
 
+    # Pauschale, wenn das Kennzeichen nicht im System ist
+    # Ergebnis: ok, ungueltig, art oder vorhanden
     def ticket_verloren(self, kz, art, jetzt):
-        """Pauschale fuer Kennzeichen ohne Parkvorgang (AK 4.1-4.3).
-        -> (ergebnis, betrag): ok | ungueltig | art | vorhanden"""
         if not ist_gueltig(kz):
             return "ungueltig", 0
         if art not in ZAHLUNGSARTEN:
@@ -85,8 +85,8 @@ class Parkhaus:
                               "betrag": tarif.PAUSCHALE_VERLOREN, "verloren": True}
         return "ok", tarif.PAUSCHALE_VERLOREN
 
+    # Ergebnis: ok, nicht_gefunden, unbezahlt oder kulanz
     def ausfahrt(self, kz, jetzt):
-        """-> (ergebnis, betrag): ok | nicht_gefunden | unbezahlt | kulanz"""
         f = self.fahrzeuge.get(kz)
         if f is None:
             return "nicht_gefunden", 0

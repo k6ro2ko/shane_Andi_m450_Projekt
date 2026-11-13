@@ -1,4 +1,4 @@
-# Pico 1 – Kasse: Kassen-UI (/), Admin-Seite (/admin, nur TEST-Build) und M2M-API (/api/...).
+# Webseiten von Pico 1: Kasse (/), Admin (/admin, nur im Test) und die API fuer Pico 2 (/api/...)
 import json
 import time
 
@@ -14,10 +14,9 @@ M_BEZAHLT = "Bezahlung erfolgreich – bitte innert 15 Minuten ausfahren"
 MAX_MINUTEN = 525600
 
 
+# Der Pico hat keine Batterie fuer die Uhr. Nach jedem Start muss die Zeit
+# ueber die Admin-Seite gesetzt werden (kommt vom Browser).
 class Uhr:
-    """Ortszeit in Sekunden seit 1970. Der Pico hat keine gepufferte Uhr:
-    nach jedem Start muss die Zeit auf der Admin-Seite uebernommen werden."""
-
     def __init__(self, quelle=time.time):
         self._quelle = quelle
         self.offset = 0

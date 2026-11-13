@@ -1,4 +1,4 @@
-# Entscheidungen von Pico 2 (Schranken) – reine Logik, ohne Hardware.
+# Was Pico 2 mit der Antwort der Kasse macht: Schranke auf oder nicht, und welche Meldung.
 M_UNGUELTIG = "Ungültiges Kennzeichen"
 M_DOPPELT = "Fahrzeug bereits im Parkhaus"
 M_VOLL = "Parkhaus voll"
@@ -19,8 +19,8 @@ def m_ausfahrt_ok(kz):
     return "Ausfahrt frei: %s – gute Fahrt" % kz
 
 
+# antwort ist das JSON von Pico 1, oder None wenn die Kasse nicht geantwortet hat
 def einfahrt_ergebnis(antwort, kz):
-    """antwort = JSON von Pico 1 oder None (Timeout/Fehler) -> (oeffnen, meldung)"""
     if not isinstance(antwort, dict):
         return False, M_KASSE_OFFLINE
     r = antwort.get("r")

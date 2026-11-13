@@ -1,0 +1,408 @@
+{
+ "start": "18:14:19",
+ "G0": [
+  {
+   "reset": "Alle Daten zurückgesetzt – 3 freie Plätze",
+   "admin": "3",
+   "uhrzeit": "18:14:19"
+  }
+ ],
+ "TC-01": [
+  {
+   "uhrzeit": "18:14:19",
+   "meldung": "Einfahrt registriert: ZH-123 (13.11.2026, 18:14 Uhr)",
+   "http_s": 0.001,
+   "zeit_bis_oeffnen": 0.0,
+   "offen_dauer": 5.01,
+   "admin_zeile": "ZH-123 13.11.2026, 18:14 Dauer 0:00 Offen – – CHF 0.00 Einfahrt vor n Minuten",
+   "admin_frei": "2"
+  }
+ ],
+ "TC-02": [
+  {
+   "uhrzeit": "18:14:24",
+   "meldung": "Fahrzeug bereits im Parkhaus",
+   "schranke_ein_offen": false,
+   "neue_oeffnung": false,
+   "eintraege_zh123": 1
+  }
+ ],
+ "TC-03": [
+  {
+   "uhrzeit": "18:16:29",
+   "dl": "Kennzeichen ZH-123 Einfahrt 13.11.2026, 18:14 Uhr Parkdauer 0:02 h Status Offen",
+   "betrag": [
+    "CHF 2.00"
+   ],
+   "meldung": null,
+   "text": "Kasse – Smart Parking *{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;font-size:18px;background:#f4f5f7;color:#1c1e21}main{max-width:720px;margin:0 auto;padding:16px}h1{font-size:1.5em;margin:.2em 0 .6em}h2{font-size:1.15em;margin:1em 0 .4em}section{background:#fff;border-radi"
+  }
+ ],
+ "TC-04": [
+  {
+   "uhrzeit": "18:16:29",
+   "meldung": "Bezahlung erfolgreich – bitte innert 15 Minuten ausfahren (CHF 2.00, Karte)",
+   "status": "Bezahlt",
+   "admin_zeile": "ZH-123 13.11.2026, 18:14 Dauer 0:02 Bezahlt 13.11.2026, 18:16 Karte CHF 2.00 Einfahrt vor n Minuten Zahlung vor n Minuten"
+  }
+ ],
+ "TC-05": [
+  {
+   "uhrzeit": "18:16:34",
+   "vorbedingung": "BE-999 eingefahren",
+   "meldung": "Bitte an Kasse bezahlen",
+   "schranke_aus_offen": false,
+   "neue_oeffnung": false
+  }
+ ],
+ "TC-06": [
+  {
+   "uhrzeit": "18:16:35",
+   "meldung": "Ausfahrt frei: ZH-123 – gute Fahrt",
+   "http_s": 0.017,
+   "zeit_bis_oeffnen": 0.0,
+   "offen_dauer": 5.01,
+   "zh123_im_parkhaus": false,
+   "zh123_abgeschlossen": "ZH-123 13.11.2026, 18:14 13.11.2026, 18:16 13.11.2026, 18:16 Karte CHF 2.00",
+   "admin_frei": "2"
+  }
+ ],
+ "TC-07": [
+  {
+   "uhrzeit": "18:16:40",
+   "xx000": "Kennzeichen nicht gefunden",
+   "zh123": "Kennzeichen nicht gefunden",
+   "neue_oeffnung": false,
+   "seite_danach_ok": true
+  }
+ ],
+ "TC-08": [
+  {
+   "uhrzeit": "18:16:40",
+   "schritte": [
+    {
+     "nr": "1a",
+     "eingabe": "ZH-",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false
+    },
+    {
+     "nr": "1b",
+     "eingabe": "ZH-1234567",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false
+    },
+    {
+     "nr": "1c",
+     "eingabe": "ZH-0123",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false
+    },
+    {
+     "nr": "1d",
+     "eingabe": "XX-123",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false
+    },
+    {
+     "nr": "1e",
+     "eingabe": "ZH123",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false
+    },
+    {
+     "nr": "1f",
+     "eingabe": "",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false
+    },
+    {
+     "nr": "2a",
+     "eingabe": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false,
+     "seite_ok": true
+    },
+    {
+     "nr": "2b",
+     "eingabe": "<b>ZH-1</b>",
+     "meldung": "Ungültiges Kennzeichen",
+     "geoeffnet": false,
+     "roh_b_tag_im_html": false,
+     "escaped": true
+    },
+    {
+     "nr": "3a",
+     "eingabe": "JU-1",
+     "meldung": "Einfahrt registriert: JU-1 (13.11.2026, 18:16 Uhr)",
+     "geoeffnet": true
+    },
+    {
+     "nr": "3b",
+     "eingabe": "VD-999999",
+     "meldung": "Einfahrt registriert: VD-999999 (13.11.2026, 18:16 Uhr)",
+     "geoeffnet": true
+    },
+    {
+     "nr": "3c",
+     "eingabe": "ag-9999",
+     "meldung": "Einfahrt registriert: AG-9999 (13.11.2026, 18:16 Uhr)",
+     "geoeffnet": true
+    }
+   ],
+   "admin_kz": [
+    "AG-9999",
+    "JU-1",
+    "VD-999999"
+   ]
+  }
+ ],
+ "TC-09": [
+  {
+   "uhrzeit": "18:16:57",
+   "schritt1": [
+    {
+     "kz": "FR-101",
+     "meldung": "Einfahrt registriert: FR-101 (13.11.2026, 18:16 Uhr)",
+     "frei": "Freie Plätze: 2"
+    },
+    {
+     "kz": "FR-102",
+     "meldung": "Einfahrt registriert: FR-102 (13.11.2026, 18:16 Uhr)",
+     "frei": "Freie Plätze: 1"
+    },
+    {
+     "kz": "FR-103",
+     "meldung": "Einfahrt registriert: FR-103 (13.11.2026, 18:16 Uhr)",
+     "frei": "Parkhaus voll"
+    }
+   ],
+   "schritt2": {
+    "frei": "Parkhaus voll",
+    "button_disabled": true
+   },
+   "schritt3": {
+    "meldung": "Parkhaus voll",
+    "geoeffnet": false
+   },
+   "schritt4": {
+    "bezahlt": "Bezahlung erfolgreich – bitte innert 15 Minuten ausfahren (CHF 2.00, Karte)",
+    "ausfahrt": "Ausfahrt frei: FR-101 – gute Fahrt",
+    "aus_oeffnet_s": 0.0,
+    "frei_nach_reload": "Freie Plätze: 1",
+    "button_aktiv": true,
+    "fr104": "Einfahrt registriert: FR-104 (13.11.2026, 18:17 Uhr)",
+    "ein_oeffnet_s": 0.0
+   }
+  }
+ ],
+ "TC-10": [
+  {
+   "uhrzeit": "18:17:13",
+   "werte": [
+    {
+     "n": 0,
+     "admin": "Einfahrt von TG-500 auf vor 0 Minuten gesetzt",
+     "dauer": "0:00",
+     "chf": "CHF 2.00",
+     "abfrage_nach_s": 0.0
+    },
+    {
+     "n": 59,
+     "admin": "Einfahrt von TG-500 auf vor 59 Minuten gesetzt",
+     "dauer": "0:59",
+     "chf": "CHF 2.00",
+     "abfrage_nach_s": 0.02
+    },
+    {
+     "n": 61,
+     "admin": "Einfahrt von TG-500 auf vor 61 Minuten gesetzt",
+     "dauer": "1:01",
+     "chf": "CHF 4.00",
+     "abfrage_nach_s": 0.02
+    },
+    {
+     "n": 659,
+     "admin": "Einfahrt von TG-500 auf vor 659 Minuten gesetzt",
+     "dauer": "10:59",
+     "chf": "CHF 22.00",
+     "abfrage_nach_s": 0.0
+    },
+    {
+     "n": 661,
+     "admin": "Einfahrt von TG-500 auf vor 661 Minuten gesetzt",
+     "dauer": "11:01",
+     "chf": "CHF 24.00",
+     "abfrage_nach_s": 0.02
+    },
+    {
+     "n": 1439,
+     "admin": "Einfahrt von TG-500 auf vor 1439 Minuten gesetzt",
+     "dauer": "23:59",
+     "chf": "CHF 24.00",
+     "abfrage_nach_s": 0.0
+    },
+    {
+     "n": 1441,
+     "admin": "Einfahrt von TG-500 auf vor 1441 Minuten gesetzt",
+     "dauer": "24:01",
+     "chf": "CHF 26.00",
+     "abfrage_nach_s": 0.0
+    }
+   ]
+  }
+ ],
+ "TC-11": [
+  {
+   "uhrzeit": "18:17:13",
+   "vorbedingung": [
+    {
+     "kz": "SZ-710",
+     "meldung": "Bezahlung erfolgreich – bitte innert 15 Minuten ausfahren (CHF 2.00, Karte)"
+    },
+    {
+     "kz": "SZ-711",
+     "meldung": "Bezahlung erfolgreich – bitte innert 15 Minuten ausfahren (CHF 2.00, Karte)"
+    }
+   ],
+   "schritt1": {
+    "admin": "Zahlung von SZ-710 auf vor 14 Minuten gesetzt",
+    "meldung": "Ausfahrt frei: SZ-710 – gute Fahrt",
+    "geoeffnet": true,
+    "oeffnet_s": 0.0
+   },
+   "schritt2": {
+    "admin": "Zahlung von SZ-711 auf vor 16 Minuten gesetzt",
+    "meldung": "Kulanzzeit überschritten – Nachzahlung CHF 2.00",
+    "geoeffnet": false
+   },
+   "schritt3": {
+    "kasse_vorher": {
+     "dl": "Kennzeichen SZ-711 Einfahrt 13.11.2026, 18:17 Uhr Parkdauer 0:00 h Status Kulanzzeit überschritten Zahlung 13.11.2026, 18:01 Uhr, Karte",
+     "betrag": [
+      "CHF 2.00"
+     ],
+     "meldung": null,
+     "text": "Kasse – Smart Parking *{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;font-size:18px;background:#f4f5f7;color:#1c1e21}main{max-width:720px;margin:0 auto;padding:16px}h1{font-size:1.5em;margin:.2em 0 .6em}h2{font-size:1.15em;margin:1em 0 .4em}section{background:#fff;border-radi"
+    },
+    "bezahlen": "Bezahlung erfolgreich – bitte innert 15 Minuten ausfahren (CHF 2.00, Bargeld)",
+    "ausfahrt": "Ausfahrt frei: SZ-711 – gute Fahrt",
+    "geoeffnet": true,
+    "oeffnet_s": 0.0
+   }
+  }
+ ],
+ "TC-12": [
+  {
+   "uhrzeit": "18:17:34",
+   "schritt1": {
+    "meldung": "Kennzeichen nicht gefunden",
+    "button_ticket_verloren": true
+   },
+   "schritt2": {
+    "pauschale_angezeigt": [
+     "CHF 24.00"
+    ],
+    "meldung": "Bezahlt – Ausfahrt bis 18:32",
+    "betrag_danach": [
+     "CHF 24.00"
+    ],
+    "zahlung_um": "18:17",
+    "erwartet_bis": "18:32"
+   },
+   "schritt3": {
+    "meldung": "Ausfahrt frei: GL-4040 – gute Fahrt",
+    "geoeffnet": true,
+    "oeffnet_s": 0.0
+   }
+  }
+ ],
+ "TC-13": [
+  {
+   "uhrzeit": "18:17:44",
+   "schritt1_kasse_erreichbar": "nein (TimeoutError)",
+   "schritt2": {
+    "meldung": "Kasse nicht erreichbar – bitte Personal rufen",
+    "zeit_s": 4.0,
+    "aus_offen": false
+   },
+   "schritt3": {
+    "meldung": "Kasse nicht erreichbar – bitte Personal rufen",
+    "zeit_s": 4.0,
+    "ein_offen": false,
+    "geoeffnet": false
+   },
+   "schritt4": {
+    "admin_uhr_vorher": "Uhrzeit NICHT gesetzt",
+    "kasse_warnung_uhr": true,
+    "admin_uhr_nachher": "Uhrzeit Pico 1: 13.11.2026, 18:18 Uhr",
+    "ow1313_nach_neustart_noch_gespeichert": true,
+    "meldung": "Einfahrt registriert: NE-2020 (13.11.2026, 18:18 Uhr)",
+    "oeffnet_s": 0.01
+   }
+  }
+ ],
+ "TC-14": [
+  {
+   "uhrzeit": "18:18:18",
+   "schritt1": {
+    "meldung_einfahrt": "Einfahrt registriert: AI-900 (13.11.2026, 18:18 Uhr)",
+    "ein_offen_vor_neustart": true,
+    "cam_waehrend_aus": "nicht erreichbar (URLError)",
+    "nach_start_ein": false,
+    "nach_start_aus": false,
+    "pico2_wieder_an": "18:18:28"
+   },
+   "schritt2": {
+    "ui_erreichbar": true,
+    "ladezeit_s": 0.013,
+    "meldung": "Bitte an Kasse bezahlen",
+    "geoeffnet": false,
+    "aus_offen": false
+   }
+  }
+ ],
+ "TC-15": [
+  {
+   "uhrzeit": "18:18:48",
+   "schritt1": [
+    {
+     "kz": "SG-321",
+     "oeffnet_s": 0.0,
+     "offen_s": 5.04,
+     "http_s": 0.002
+    },
+    {
+     "kz": "SG-322",
+     "oeffnet_s": 0.0,
+     "offen_s": 5.02,
+     "http_s": 0.001
+    },
+    {
+     "kz": "SG-323",
+     "oeffnet_s": 0.0,
+     "offen_s": 5.01,
+     "http_s": 0.017
+    }
+   ],
+   "schritt2": {
+    "kamera": [
+     0.001,
+     0.015,
+     0.001
+    ],
+    "kasse": [
+     0.013,
+     0.016,
+     0.001
+    ],
+    "admin": [
+     0.015,
+     0.016,
+     0.015
+    ]
+   }
+  }
+ ],
+ "ende": "18:19:04"
+}

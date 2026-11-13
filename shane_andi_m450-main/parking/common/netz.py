@@ -1,4 +1,4 @@
-# WLAN-Verbindung mit fester IP (Testkonzept Kap. 2.1). Nur auf dem Pico W.
+# WLAN mit fester IP. Onboard-LED: blinkt = sucht, an = verbunden.
 import time
 
 import network
@@ -26,7 +26,7 @@ def verbinden(ssid, passwort, ip, maske, gateway, dns, versuche_s=30):
         print("WLAN verbunden:", wlan.ifconfig())
     else:
         _led.off()
-        print("WLAN NICHT verbunden – SSID/Passwort in config.py pruefen")
+        print("WLAN NICHT verbunden, SSID/Passwort in config.py pruefen")
     return wlan
 
 
@@ -42,8 +42,8 @@ def access_point(ssid, passwort, ip, maske):
     return ap
 
 
+# alle 3 s schauen ob das WLAN noch da ist, sonst neu verbinden
 async def ueberwachen(wlan, ssid, passwort, ip, maske, gateway, dns):
-    """Verbindung alle 3 s pruefen und bei Bedarf neu aufbauen."""
     try:
         import asyncio
     except ImportError:
@@ -52,7 +52,7 @@ async def ueberwachen(wlan, ssid, passwort, ip, maske, gateway, dns):
         await asyncio.sleep(3)
         if not wlan.isconnected():
             _led.off()
-            print("WLAN getrennt – verbinde neu")
+            print("WLAN getrennt, verbinde neu")
             try:
                 wlan.connect(ssid, passwort)
                 for _ in range(40):
